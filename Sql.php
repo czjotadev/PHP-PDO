@@ -1,6 +1,6 @@
 <?php 
 
-namespace Senacdev\DB;
+namespace Projeto\DB;
 
 class Sql {
 
