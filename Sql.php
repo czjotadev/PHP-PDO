@@ -11,8 +11,7 @@ class Sql {
 
 	private $conn;
 
-	public function __construct()
-	{
+	public function __construct(){
 
 		$this->conn = new \PDO(
 			"sqlsrv:Server=".Sql::HOSTNAME.";Database=".Sql::DBNAME,
@@ -22,8 +21,7 @@ class Sql {
 
 	}
 
-	private function setParams($statement, $parameters = array())
-	{
+	private function setParams($statement, $parameters = array()){
 
 		foreach ($parameters as $key => $value) {
 			
@@ -33,15 +31,13 @@ class Sql {
 
 	}
 
-	private function bindParam($statement, $key, $value)
-	{
+	private function bindParam($statement, $key, $value){
 
 		$statement->bindParam($key, $value);
 
 	}
 
-	public function query($rawQuery, $params = array())
-	{
+	public function query($rawQuery, $params = array()){
 
 		$stmt = $this->conn->prepare($rawQuery);
 
@@ -51,8 +47,7 @@ class Sql {
 
 	}
 
-	public function select($rawQuery, $params = array()):array
-	{
+	public function select($rawQuery, $params = array()):array{
 
 		$stmt = $this->conn->prepare($rawQuery);
 
